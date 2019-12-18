@@ -1,4 +1,4 @@
-# Docker Image for pcitRif package in R
+# Docker Image for pcitRif package in R <img src="logo.png" align="right" width="300" />
 
 ### Overview
 This image provides a docker Rstudio interface for pcitRif package in R, pointing to [pcitRif repository](https://github.com/cbiagii/pcitRif).
