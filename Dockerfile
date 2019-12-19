@@ -28,7 +28,7 @@ RUN apt-get update && apt-get install -y \
 	zlib1g-dev
 
 # Install CRAN packages dependencies
-RUN Rscript -e "install.packages(c('BiocManager', 'crayon', 'geomnet', 'GGally', 'ggplot2', 'ggpubr', 'kableExtra', 'knitr', 'network', 'pbapply', 'reshape2', 'rmarkdown', 'scales', 'testthat'))"
+RUN Rscript -e "install.packages(c('BiocManager', 'crayon', 'dplyr', 'geomnet', 'GGally', 'ggplot2', 'ggpubr', 'ggrepel', 'kableExtra', 'knitr', 'network', 'pbapply', 'reshape2', 'rmarkdown', 'scales', 'testthat', 'tidyr'))"
 
 # Install Bioconductor packages dependencies
 RUN Rscript -e "BiocManager::install(c('airway', 'clusterProfiler', 'DESeq2', 'org.Hs.eg.db', 'SummarizedExperiment'))"
