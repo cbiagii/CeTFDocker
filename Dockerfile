@@ -1,11 +1,11 @@
 ################## BASE IMAGE ######################
-FROM rocker/rstudio:3.6.2
+FROM rocker/rstudio:devel
 
 ################## METADATA ######################
-LABEL base.image="rocker/rstudio:3.6.2"
-LABEL version="3.6.2"
+LABEL base.image="rocker/rstudio:devel"
+LABEL version="devel"
 LABEL software="CeTF"
-LABEL software.version="1.0"
+LABEL software.version="0.99.15"
 LABEL about.summary="An implementation of PCIT and RIF algorthms in R"
 LABEL about.home="https://github.com/cbiagii/CeTF"
 LABEL about.documentation="https://github.com/cbiagii/CeTF"
@@ -13,7 +13,7 @@ LABEL license="https://github.com/cbiagii/CeTF"
 LABEL about.tags="Genomics"
 
 ################## MAINTAINER ######################
-MAINTAINER Carlos Biagi Jr <biagi@usp.br>
+MAINTAINER Carlos Biagi Jr <cbiagijr@gmail.com>
 
 ################## INSTALLATION ######################
 # Install Linux dependencies
@@ -25,13 +25,23 @@ RUN apt-get update && apt-get install -y \
 	gfortran \
 	build-essential \ 
 	libz-dev \ 
-	zlib1g-dev
+	zlib1g-dev \
+	libpng-dev \
+	libfontconfig1-dev \
+	libcairo2-dev
 
-# Install CRAN packages dependencies
-RUN Rscript -e "install.packages(c('BiocManager', 'crayon', 'dplyr', 'geomnet', 'GGally', 'ggplot2', 'ggpubr', 'ggrepel', 'kableExtra', 'knitr', 'network', 'pbapply', 'reshape2', 'rmarkdown', 'scales', 'testthat', 'tidyr'))"
 
-# Install Bioconductor packages dependencies
-RUN Rscript -e "BiocManager::install(c('airway', 'clusterProfiler', 'DESeq2', 'org.Hs.eg.db', 'SummarizedExperiment', 'S4Vectors'))"
+# Installing BiocManager
+RUN Rscript -e "install.packages('BiocManager')"
 
-# Install CeTF package
-#RUN Rscript -e "devtools::install_github('cbiagii/CeTF')"
+# Update BiocManager to development version 
+RUN Rscript -e "BiocManager::install(version='devel')"
+
+# Installing CeTF package
+RUN Rscript -e "BiocManager::install('CeTF')"
+
+# Installing Bioconductor dependencies
+RUN Rscript -e "BiocManager::install(c('snpStats', 'airway', 'ComplexHeatmap', 'org.Hs.eg.db', 'RCy3'))"
+
+# Installing CRAN dependencies
+RUN Rscript -e "install.packages(c('circlize', 'GenomicTools', 'WebGestaltR'))"
