@@ -2,10 +2,10 @@
 FROM rocker/rstudio:devel
 
 ################## METADATA ######################
-LABEL base.image="rocker/rstudio:devel"
-LABEL version="devel"
+LABEL base.image="rocker/rstudio"
+LABEL version="latest"
 LABEL software="CeTF"
-LABEL software.version="0.99.16"
+LABEL software.version="1.0.6"
 LABEL about.summary="An implementation of PCIT and RIF algorthms in R"
 LABEL about.home="https://github.com/cbiagii/CeTF"
 LABEL about.documentation="https://github.com/cbiagii/CeTF"
