@@ -1,4 +1,4 @@
-# Docker Image for CeTF package in R <img src="logo.png" align="right" width="300" />
+# Docker Image for CeTF package in R <img src="hex.png" align="right" width="300" />
 
 ### Overview
 This image provides a docker Rstudio interface for CeTF package in R, pointing to [Bioconductor](https://bioconductor.org/packages/CeTF) and [GitHub repository](https://github.com/cbiagii/CeTF)
