@@ -1,5 +1,5 @@
 ################## BASE IMAGE ######################
-FROM rocker/rstudio:devel
+FROM rocker/rstudio
 
 ################## METADATA ######################
 LABEL base.image="rocker/rstudio"
@@ -33,9 +33,6 @@ RUN apt-get update && apt-get install -y \
 
 # Installing BiocManager
 RUN Rscript -e "install.packages('BiocManager')"
-
-# Update BiocManager to development version 
-RUN Rscript -e "BiocManager::install(version='devel')"
 
 # Installing CeTF package
 RUN Rscript -e "BiocManager::install('CeTF')"
