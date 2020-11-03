@@ -5,7 +5,7 @@ FROM rocker/rstudio
 LABEL base.image="rocker/rstudio"
 LABEL version="latest"
 LABEL software="CeTF"
-LABEL software.version="1.0.6"
+LABEL software.version="1.2.2"
 LABEL about.summary="An implementation of PCIT and RIF algorthms in R"
 LABEL about.home="https://github.com/cbiagii/CeTF"
 LABEL about.documentation="https://github.com/cbiagii/CeTF"
