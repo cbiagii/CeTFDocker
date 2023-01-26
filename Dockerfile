@@ -5,7 +5,7 @@ FROM rocker/rstudio
 LABEL base.image="rocker/rstudio"
 LABEL version="latest"
 LABEL software="CeTF"
-LABEL software.version="1.2.2"
+LABEL software.version="1.10.1"
 LABEL about.summary="An implementation of PCIT and RIF algorthms in R"
 LABEL about.home="https://github.com/cbiagii/CeTF"
 LABEL about.documentation="https://github.com/cbiagii/CeTF"
@@ -41,4 +41,4 @@ RUN Rscript -e "BiocManager::install('CeTF')"
 RUN Rscript -e "BiocManager::install(c('snpStats', 'airway', 'ComplexHeatmap', 'org.Hs.eg.db', 'RCy3'))"
 
 # Installing CRAN dependencies
-RUN Rscript -e "install.packages(c('circlize', 'GenomicTools', 'WebGestaltR'))"
+RUN Rscript -e "install.packages(c('circlize', 'WebGestaltR'))"
